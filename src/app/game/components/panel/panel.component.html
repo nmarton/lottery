@@ -1,0 +1,23 @@
+<div class="panel">
+  <div class="panel__buttons">
+    <span (click)="generate()">
+      <fa-icon [icon]="faRandom"></fa-icon>
+      RND
+    </span>
+    <span (click)="resetCells()">
+      <fa-icon [icon]="faTrash"></fa-icon>
+      DEL
+    </span>
+  </div>
+  <div class="panel__grid">
+    <span class="panel__index">{{panelNumber}}</span>
+    <ng-container  *ngFor="let cell of numberOfCells; index as i">
+      <app-cell
+        [id]="i + 1"
+        (selectEvent)="selectCell($event)"
+        [selected]="cell"
+      ></app-cell>
+    </ng-container>
+  </div>
+</div>
+

@@ -1,0 +1,19 @@
+<div class="game">
+  <div class="game__panels">
+    <ng-container *ngFor="let panel of panels">
+      <app-panel
+        [panelNumber]="panel.panel"
+        [events]="eventsSubject.asObservable()"
+        (getSelectedCells)="getCells($event)"
+      ></app-panel>
+    </ng-container>
+  </div>
+  <button class="btn btn-danger game__btn" (click)="submit()">Play</button>
+
+  <ng-container *ngFor="let panel of panels">
+    <p *ngIf="panel.message" class="game__summary">
+      Panel {{panel.panel}}:
+      <span>{{panel.message}}</span>
+    </p>
+  </ng-container>
+</div>

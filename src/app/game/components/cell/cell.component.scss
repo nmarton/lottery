@@ -1,0 +1,41 @@
+.cell {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d40632;
+  color: #d40632;
+  cursor: pointer;
+  position: relative;
+
+  &__cross {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-self: center;
+    content: 'x';
+    flex: 1;
+    color: black;
+    font-weight: 400;
+    font-size: 40px;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      left: calc(50% - 2px);
+      transform: rotate(45deg);
+      width: 4px;
+      height: calc(100% + 5px);
+      background-color: black;
+      border-radius: 2px;
+    }
+
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+}

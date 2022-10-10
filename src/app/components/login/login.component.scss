@@ -1,0 +1,33 @@
+.login-form {
+
+    border: 1px solid #eee;
+  
+    padding: 50px 30px;
+  
+    &-container {
+      height: calc(100vh - 120px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    h1 {
+      font-size: 32px;
+      padding-bottom :20px;
+    }
+  
+    .btn {
+      margin-top: 25px;
+      float: right;
+    }
+
+    .form-control,
+    .form-select {
+        margin-top: 15px;
+    }
+
+    .alert {
+        margin-top: 5px;
+    }
+  
+  }

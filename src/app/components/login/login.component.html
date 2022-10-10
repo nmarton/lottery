@@ -1,0 +1,24 @@
+<div class="login-form-container">
+  <form class="login-form col-md-5" (ngSubmit)="login()" [formGroup]="loginForm">
+    <h1>Lottery Login</h1>
+    <select class="form-select" formControlName="selectedUser">
+      <option [value]="null" selected disabled>Please select...</option>
+      <option *ngFor="let user of users" [value]="user.name">{{user.name}}</option>
+    </select>
+    <div *ngIf="selectedUserIsValid" class="alert alert-danger">
+      Please select a user form the list!
+    </div>
+    <input name="uname" type="text" class="form-control" formControlName="name" placeholder="Username"/>
+    <div *ngIf="nameIsValid" class="alert alert-danger">
+      Name is required!
+    </div>
+    <input name="upass" type="password" class="form-control" formControlName="password" placeholder="Password"  autocomplete="new-password"/>
+    <div *ngIf="passIsValid" class="alert alert-danger">
+      Password is required!
+    </div>
+    <div *ngIf="loginFailedError" class="alert alert-danger">
+      Invalid username or password!
+    </div>
+    <input type="submit" class="btn btn-primary" value="Login" />
+  </form>
+</div>

@@ -1,0 +1,11 @@
+<div class="header-bar">
+  <div class="header-bar-logo">
+    <a class="header-bar-link" [routerLink]="['/beers']">LOTTERY</a>
+  </div>
+  <div class="header-bar-user" *ngIf="user$ | async as user">
+    <div>
+      <span class="header-bar-greetings">Hello, {{ user }}!</span>
+      <button class="btn btn-danger" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</div>

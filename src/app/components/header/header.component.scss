@@ -1,0 +1,42 @@
+.header-bar {
+	height: 70px;
+	width: 100%;
+	display: flex;
+	background-color: black;
+	color: white;
+	padding: 0 10px;
+  margin-bottom: 50px;
+
+	&-user {
+		display: flex;
+		flex: 1;
+		align-items: flex-end;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+  &-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+
+  &-link {
+    color: white;
+    text-decoration: none;
+  }
+
+	&-greetings {
+		margin-right: 10px;
+
+		@media screen and (max-width: 768px) {
+			display: none;
+		}
+
+	}
+
+  .btn {
+    border-radius: 0;
+  }
+}
