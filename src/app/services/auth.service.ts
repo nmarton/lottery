@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, map, Observable } from "rxjs";
 import { Router } from "@angular/router";
-import UserService from "./user.service";
+import UserService, { User } from "./user.service";
 
 @Injectable({
   providedIn: 'root'
@@ -21,14 +21,14 @@ export default class AuthService {
     this.user = this.userSubject.asObservable();
   }
 
-  login(userName: string, password: string): Observable<boolean> {
-    return this.users.checkUser(userName, password)
-      .pipe(map(isCorrect => {
-        if (isCorrect) {
-          localStorage.setItem('user', userName);
-          this.userSubject.next(userName);
+  login( userId: string, password: string): Observable<User | null> {
+    return this.users.checkUser(userId, password)
+      .pipe(map(user => {
+        if (user) {
+          localStorage.setItem('user', user.name);
+          this.userSubject.next(user.name);
         }
-        return isCorrect;
+        return user;
       }));
   }
 

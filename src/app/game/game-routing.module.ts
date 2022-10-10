@@ -5,7 +5,7 @@ import { GameComponent } from './game.component';
 
 
 const routes: Routes = [
-  {path: '', component: GameComponent, canActivate: [AuthGuard]},
+  {path: 'game', component: GameComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Observable, of } from 'rxjs';
 
 import { HeaderComponent } from './header.component';
 
@@ -19,5 +20,17 @@ describe('HeaderComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('user should visible', () => {
+    component.logout();
+    component.user$ = of('Test User');
+    fixture.detectChanges();
+    
+    const compiled = fixture.debugElement.nativeElement;
+    const nameAndLogout = compiled.querySelector('.header-bar-user');
+    console.log('sscell', nameAndLogout);
+
+    expect(nameAndLogout).not.toBeNull();
   });
 });

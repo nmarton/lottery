@@ -1,11 +1,11 @@
-import { Injectable } from "@angular/core";
+import { forwardRef, Injectable } from "@angular/core";
+import { GameModule } from "../game/game.module";
 
-@Injectable({
-  providedIn: 'root'
-})
-
+@Injectable()
 export default class NumberGeneratorService {
-  constructor () {}
+  constructor () {
+    console.log('load game service')
+  }
 
   generate(size: number, min: number = 1, max: number = 49): number[] {
     const numberSet = new Set<number>();

@@ -21,9 +21,9 @@ export class PanelComponent implements OnInit {
   faRandom = faRandom;
   faTrash = faTrashAlt;
 
-  private selectedCells: Set<Number> = new Set();
+  public selectedCells: Set<Number> = new Set();
 
-  numberOfCells = new Array(49).fill(false);
+  defaultCells = new Array(49).fill(false);
 
   constructor(private numberGeneratorService: NumberGeneratorService) { }
 

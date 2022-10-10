@@ -47,10 +47,10 @@ export class GameComponent implements OnInit {
       return 'empty'
     }
     if (length < 6) {
-      return `${6 - length} marks are missing`
+      return `Error: ${6 - length} marks are missing`
     }
     if (length > 6) {
-      return `Please remove ${length - 6} mark`
+      return `Error: Please remove ${length - 6} mark`
     }
     return cellNumbers.sort((a,b) => a - b).join(',');
   }

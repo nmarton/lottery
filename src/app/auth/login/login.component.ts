@@ -19,12 +19,8 @@ export class LoginComponent implements OnInit {
   loginFailedError: boolean = false; 
 
   loginForm: FormGroup = new FormGroup({
-    selectedUser: new FormControl(
-      null,
-      [
-        Validators.required
-      ]),
-    name: new FormControl(
+    name: new FormControl(null),
+    id: new FormControl(
       null,
       [
         Validators.required
@@ -40,14 +36,14 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.loginForm?.valid) {
-      const name = this.loginForm.get('name')?.value;
+      const id = this.loginForm.get('id')?.value;
       const pass = this.loginForm.get('password')?.value;
 
-      this.authService.login(name, pass).subscribe((login) => {
+      this.authService.login(id, pass).subscribe((login) => {
         if (login) {
           this.loginFailedError = false;
           const locationState: any =  this.location.getState();
-          this.router.navigate([locationState.returnUrl ?? '/game'])
+          this.router.navigate([locationState?.returnUrl ?? '/game'])
         } else {
           this.loginFailedError = true;
         }
@@ -62,20 +58,20 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if (this.authService.userLoggedIn()) {
       const locationState: any =  this.location.getState();
-      this.router.navigate([locationState.returnUrl ?? '/game'])
+      this.router.navigate([locationState?.returnUrl ?? '/game'])
     };
 
-    this.loginForm.get('selectedUser')?.valueChanges.subscribe((value) => {
-      this.loginForm.get('name')?.setValue(value);
+    this.loginForm.get('name')?.valueChanges.subscribe((value) => {
+      this.loginForm.get('id')?.setValue(value);
     });
   }
 
   get selectedUserIsValid() {
-    return this.formIsChecked && this.loginForm.get('selectedUser')?.errors?.['required'];
+    return this.formIsChecked && this.loginForm.get('name')?.errors?.['required'];
   }
 
   get nameIsValid() {
-    return this.formIsChecked && this.loginForm.get('name')?.errors?.['required'];
+    return this.formIsChecked && this.loginForm.get('id')?.errors?.['required'];
   }
 
   get passIsValid() {

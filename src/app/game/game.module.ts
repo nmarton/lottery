@@ -17,7 +17,8 @@ import NumberGeneratorService from '../services/numberGenerator.service';
   imports: [
     CommonModule,
     FontAwesomeModule,
-    GameRoutingModule
+    GameRoutingModule,
   ],
+  providers: [NumberGeneratorService]
 })
 export class GameModule { }

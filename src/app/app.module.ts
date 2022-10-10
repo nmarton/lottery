@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { GameModule } from './game/game.module';
 import { AuthModule } from './auth/auth.module';
-import NumberGeneratorService from './services/numberGenerator.service';
 
 @NgModule({
   declarations: [
@@ -14,9 +13,9 @@ import NumberGeneratorService from './services/numberGenerator.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     GameModule,
     AuthModule,
+    AppRoutingModule,
   ],
   bootstrap: [AppComponent]
 })

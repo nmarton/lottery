@@ -11,7 +11,6 @@ import AuthService from 'src/app/services/auth.service';
 export class HeaderComponent implements OnInit {
 
   constructor(private authService: AuthService, private router:Router) { }
- // user$: Observable<string | null> = this.store.select(selectUser);
   user$: Observable<String | null> = this.authService.user;
 
   logout() {
