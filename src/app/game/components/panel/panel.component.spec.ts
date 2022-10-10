@@ -1,6 +1,8 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Subject } from 'rxjs';
 import NumberGeneratorService from 'src/app/services/numberGenerator.service';
+import { CellComponent } from '../cell/cell.component';
 
 import { PanelComponent } from './panel.component';
 
@@ -11,6 +13,7 @@ describe('PanelComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ PanelComponent ],
+      schemas: [NO_ERRORS_SCHEMA],
       providers: [NumberGeneratorService],
     })
     .compileComponents();

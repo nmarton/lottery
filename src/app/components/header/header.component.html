@@ -5,7 +5,7 @@
   <div class="header-bar-user" *ngIf="user$ | async as user">
     <div>
       <span class="header-bar-greetings">Hello, {{ user }}!</span>
-      <button class="btn btn-danger" (click)="logout()">Logout</button>
+      <button class="btn btn-danger" (click)="logout()" data-cy="logout">Logout</button>
     </div>
   </div>
 </div>

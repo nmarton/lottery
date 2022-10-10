@@ -1,10 +1,10 @@
 <div class="login-form-container">
-  <form class="login-form col-md-5" (ngSubmit)="login()" [formGroup]="loginForm">
+  <form class="login-form col-md-5" (ngSubmit)="login()" [formGroup]="loginForm" data-cy="login">
     <h1>Lottery Login</h1>
     <div *ngIf="loginFailedError" class="alert alert-danger alert-be">
       Invalid username or password!
     </div>
-    <select class="form-select" formControlName="name">
+    <select name="name" class="form-select" formControlName="name">
       <option [value]="null" selected disabled>Please select...</option>
       <option *ngFor="let user of users" [value]="user.id">{{user.name}}</option>
     </select>
@@ -16,6 +16,6 @@
     <div *ngIf="passIsValid" class="alert alert-danger alert-fe">
       Password is required!
     </div>
-    <input type="submit" class="btn btn-primary" value="Login" />
+    <input type="submit" class="btn btn-primary" value="Login"/>
   </form>
 </div>

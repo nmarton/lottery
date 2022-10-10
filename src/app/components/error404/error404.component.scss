@@ -1,0 +1,19 @@
+.error {
+  width: 100%;
+  display: flex;
+  height: calc(100vh - 120px);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #ddd;
+  line-height: 120px;
+
+  &-number {
+    font-size: 180px;
+    font-weight: bold;
+  }
+
+  &-text {
+    font-size: 50px;
+  }
+}

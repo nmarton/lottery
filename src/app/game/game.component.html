@@ -8,7 +8,7 @@
       ></app-panel>
     </ng-container>
   </div>
-  <button class="btn btn-danger game__btn" (click)="submit()">Play</button>
+  <button class="btn btn-danger game__btn" (click)="submit()" data-cy="play">Play</button>
 
   <ng-container *ngFor="let panel of panels">
     <p *ngIf="panel.message" class="game__summary">

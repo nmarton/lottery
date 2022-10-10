@@ -1,15 +1,30 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import AuthService from 'src/app/services/auth.service';
-
 import { LoginComponent } from './login.component';
+
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { Router } from '@angular/router';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
+  let routerStub: any;
+
   beforeEach(async () => {
+    routerStub = {
+      navigate: jasmine.createSpy('navigate')
+    }
     await TestBed.configureTestingModule({
       declarations: [ LoginComponent ],
+      schemas: [NO_ERRORS_SCHEMA],
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+      ],
+      providers: [
+        { provide: Router, useValue: routerStub }
+      ]
     })
     .compileComponents();
 
@@ -23,8 +38,8 @@ describe('LoginComponent', () => {
   });
 
   it('should form correct', () => {
-    component.loginForm.get('id')?.setValue('a');
-    component.loginForm.get('password')?.setValue('a');
+    component.loginForm.get('id')?.setValue('test');
+    component.loginForm.get('password')?.setValue('test');
     component.login();
     fixture.detectChanges();
     
@@ -46,7 +61,7 @@ describe('LoginComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     const errors = compiled.querySelectorAll('.alert-be');
 
-    expect(errors.length).toEqual(0);
+    expect(routerStub.navigate).toHaveBeenCalledWith(['/game']);
   });
 
 

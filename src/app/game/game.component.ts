@@ -16,12 +16,12 @@ export class GameComponent implements OnInit {
 
   eventsSubject: Subject<void> = new Subject<void>();
   panels: panel[] = new Array();
-  panelNumber = 4;
+  numberOfPanels = 4;
 
   constructor() { }
 
   ngOnInit(): void {
-    for(let i = 1; i <= this.panelNumber; i++) {
+    for(let i = 1; i <= this.numberOfPanels; i++) {
       this.panels.push({
         panel: i,
         cells: [],

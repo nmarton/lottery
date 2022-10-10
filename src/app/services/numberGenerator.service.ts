@@ -3,9 +3,7 @@ import { GameModule } from "../game/game.module";
 
 @Injectable()
 export default class NumberGeneratorService {
-  constructor () {
-    console.log('load game service')
-  }
+  constructor () { }
 
   generate(size: number, min: number = 1, max: number = 49): number[] {
     const numberSet = new Set<number>();

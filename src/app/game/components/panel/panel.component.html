@@ -1,10 +1,10 @@
 <div class="panel">
   <div class="panel__buttons">
-    <span class="panel__generate" (click)="generate()">
+    <span class="panel__generate" (click)="generate()" data-cy="generate">
       <fa-icon [icon]="faRandom"></fa-icon>
       RND
     </span>
-    <span class="panel__reset" (click)="resetCells()">
+    <span class="panel__reset" (click)="resetCells()" data-cy="clear">
       <fa-icon [icon]="faTrash"></fa-icon>
       DEL
     </span>

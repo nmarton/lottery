@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { FormControl, FormGroup, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import AuthService from 'src/app/services/auth.service';
 import UserService from 'src/app/services/user.service';
 
@@ -42,8 +42,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(id, pass).subscribe((login) => {
         if (login) {
           this.loginFailedError = false;
-          const locationState: any =  this.location.getState();
-          this.router.navigate([locationState?.returnUrl ?? '/game'])
+          this.router.navigate(['/game']);
         } else {
           this.loginFailedError = true;
         }
@@ -57,8 +56,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.authService.userLoggedIn()) {
-      const locationState: any =  this.location.getState();
-      this.router.navigate([locationState?.returnUrl ?? '/game'])
+      this.router.navigate(['/game']);
     };
 
     this.loginForm.get('name')?.valueChanges.subscribe((value) => {
